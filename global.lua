@@ -18,19 +18,19 @@ G.GetCharacter = function()
 end
 
 G.GetHumanoid = function()
-    return GetCharacter() and GetCharacter():FindFirstChild("Humanoid")
+    return Player.Character and Player.Character:FindFirstChild("Humanoid")
 end
 
 G.GetHumanoidRootPart = function()
-    return GetCharacter() and GetCharacter():FindFirstChild("HumanoidRootPart")
+    return Player.Character and Player.Character:FindFirstChild("HumanoidRootPart")
 end
 
 G.Teleport = function(CFrame)
-    return GetCharacter() and GetCharacter():PivotTo(CFrame)
+    return Player.Character and Player.Character:PivotTo(CFrame)
 end
 
 G.GetDistance = function(Position)
-    return GetCharacter() and Player:DistanceFromCharacter(Position) or math.huge
+    return Player.Character and Player:DistanceFromCharacter(Position) or math.huge
 end
 
 G.Float = function(Bool)
