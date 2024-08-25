@@ -13,7 +13,6 @@ function PathFind(Position)
     AgentHeight = 1 * Extents.Y
     
     local Path = PathfindingService:CreatePath({WaypointSpacing = 8, AgentCanJump = true, AgentRadius = AgentRadius, AgentHeight = AgentHeight, AgentCanClimb = true})
-    local Humanoid = Character:WaitForChild("Humanoid")
 
     local Success, ErrorMessage = pcall(function()
         Path:ComputeAsync(Character:GetPivot().p, Position)
