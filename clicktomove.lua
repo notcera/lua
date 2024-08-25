@@ -6,7 +6,8 @@ local Mouse = Player:GetMouse()
 
 function PathFind(Position)
     local Character = GetCharacter()
-    if not Character then return end
+	local Humanoid = GetHumanoid()
+    if not Character or not Humanoid then return end
 
     local Extents = Character:GetExtentsSize()
     AgentRadius = 1 * 0.5 * math.sqrt(Extents.X * Extents.X + Extents.Z * Extents.Z)
@@ -24,7 +25,7 @@ function PathFind(Position)
 
         for i, v in Waypoints do
             if i == 1 then continue end
-            GetHumanoid():MoveTo(v.Position)
+            Humanoid:MoveTo(v.Position)
         end
 	else
 		warn("Path not computed!", ErrorMessage)
