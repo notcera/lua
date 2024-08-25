@@ -9,6 +9,7 @@ G.TweenService = X.TweenService
 G.TeleportService = X.TeleportService
 G.CollectionService = X.CollectionService
 G.ReplicatedStorage = X.ReplicatedStorage
+G.PathfindingService = X.PathfindingService
 G.VirtualInputManager = X.VirtualInputManager
 
 local Player = Players.LocalPlayer
