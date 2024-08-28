@@ -37,6 +37,8 @@ end
 G.Float = function(Bool)
     local HumanoidRootPart = GetHumanoidRootPart()
     local Humanoid = GetHumanoid()
+    local BodyVelocity = HumanoidRootPart and HumanoidRootPart:FindFirstChild("BodyVelocity")
+
     if not HumanoidRootPart then return end
     if not Humanoid then return end
     if Bool and BodyVelocity then return end
@@ -44,16 +46,15 @@ G.Float = function(Bool)
     if not Bool and BodyVelocity then
         Humanoid.PlatformStand = false
         BodyVelocity:Destroy()
-        G.BodyVelocity = false
         return 
     end
 
     Humanoid.PlatformStand = true
-    G.BodyVelocity = Instance.new("BodyVelocity")
-    BodyVelocity.Parent = HumanoidRootPart
-    BodyVelocity.MaxForce = Vector3.new(9e9, 9e9, 9e9)
-    BodyVelocity.P = 1250
-    BodyVelocity.Velocity = Vector3.zero
+    local This = Instance.new("BodyVelocity")
+    This.Parent = HumanoidRootPart
+    This.MaxForce = Vector3.new(9e9, 9e9, 9e9)
+    This.P = 1250
+    This.Velocity = Vector3.zero
 end
 
 G.Tween = function(CFrame, Speed)
