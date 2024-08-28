@@ -57,12 +57,16 @@ G.Float = function(Bool)
     This.Velocity = Vector3.zero
 end
 
-G.Tween = function(CFrame, Speed)
+G.Tween = function(CFrame, Speed, Wait)
     local HumanoidRootPart = GetHumanoidRootPart()
     if not HumanoidRootPart then return end
     local Time = (HumanoidRootPart.CFrame.p - CFrame.p).Magnitude / Speed
     local Tween = TweenService:Create(HumanoidRootPart, TweenInfo.new(Time, Enum.EasingStyle.Linear), {CFrame = CFrame})
     Tween:Play()
+
+    if Wait then
+        task.wait(Time)
+    end
 end
 
 G.UseTool = function(Name)
