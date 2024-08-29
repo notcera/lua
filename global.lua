@@ -34,6 +34,17 @@ G.GetDistance = function(Position)
     return Player.Character and Player:DistanceFromCharacter(Position) or math.huge
 end
 
+G.NoClip = function()
+    local Character = GetCharacter()
+    if not Character then return end
+
+    for i, v in Character:GetDescendants() do
+        if v:IsA("BasePart") and v.CanCollide then
+            v.CanCollide = false
+        end
+    end
+end
+
 G.Float = function(Bool)
     local HumanoidRootPart = GetHumanoidRootPart()
     local Humanoid = GetHumanoid()
