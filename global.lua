@@ -12,7 +12,7 @@ G.ReplicatedStorage = X.ReplicatedStorage
 G.PathfindingService = X.PathfindingService
 G.VirtualInputManager = X.VirtualInputManager
 
-local Player = Players.LocalPlayer
+G.Player = Players.LocalPlayer
 
 G.GetCharacter = function()
     return Player.Character
